@@ -34,14 +34,14 @@ router.post(
             });
 
             const savedContact = await newContact.save();
-            console.log('✅ Contact saved to database:', savedContact._id);
+            console.log('Contact saved to database:', savedContact._id);
 
             // Send email notification (non-blocking)
             try {
                 await sendContactNotification({ name, email, message });
-                console.log('✅ Email notification sent');
+                console.log('Email notification sent');
             } catch (emailError) {
-                console.error('⚠️ Email failed but message saved to database:', emailError.message);
+                console.error('Email failed but message saved to database:', emailError.message);
                 // Continue - message is already saved to database
             }
 
@@ -51,7 +51,7 @@ router.post(
                 contactId: savedContact._id,
             });
         } catch (error) {
-            console.error('❌ Error processing contact form:', error);
+            console.error('Error processing contact form:', error);
             res.status(500).json({
                 success: false,
                 message: 'Server error. Please try again later.',

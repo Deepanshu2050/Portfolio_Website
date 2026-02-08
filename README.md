@@ -2,14 +2,14 @@
 
 A modern, high-performance portfolio website built with the MERN stack featuring a black & white aesthetic, smooth animations powered by Framer Motion and GSAP, and AI-integrated project showcases.
 
-## 🎨 Design
+## Design
 
 - **Pure Black & White Aesthetic**: Minimalist color palette with grayscale accents
 - **Typography**: Space Grotesk for headings, Inter for body text
 - **Premium Animations**: 60fps smooth animations with Framer Motion, GSAP, and Lenis smooth scrolling
 - **Inspired by**: Apple, Linear, and Vercel design systems
 
-## 🚀 Tech Stack
+## Tech Stack
 
 ### Frontend
 - React 18 (Vite)
@@ -26,7 +26,7 @@ A modern, high-performance portfolio website built with the MERN stack featuring
 - Express Validator
 - CORS
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 portfolio/
@@ -46,7 +46,7 @@ portfolio/
 └── public/               # Public assets
 ```
 
-## 🛠️ Installation
+## Installation
 
 ### Prerequisites
 - Node.js (v18+)
@@ -83,7 +83,7 @@ cp ../.env.example .env
 npm run dev
 ```
 
-## 🌐 Environment Variables
+## Environment Variables
 
 Create a `.env` file in the root directory:
 
@@ -94,7 +94,7 @@ NODE_ENV=development
 FRONTEND_URL=http://localhost:3000
 ```
 
-## 📦 Features
+## Features
 
 ### Sections
 - **Hero**: Animated landing with text reveals and parallax effects
@@ -118,7 +118,7 @@ FRONTEND_URL=http://localhost:3000
 - `POST /api/projects` - Create project
 - `POST /api/contact` - Submit contact form
 
-## 🎯 Featured Project
+## Featured Project
 
 **ValoBot - Valorant Player Finder**
 - Python + Flask backend
@@ -126,7 +126,7 @@ FRONTEND_URL=http://localhost:3000
 - Chatbot-style interaction
 - Responsive frontend
 
-## 📱 Responsive Design
+## Responsive Design
 
 Fully responsive across all devices:
 - Desktop (1920px+)
@@ -134,7 +134,7 @@ Fully responsive across all devices:
 - Tablet (768px - 1024px)
 - Mobile (320px - 768px)
 
-## 🚀 Deployment
+## Deployment
 
 ### Frontend (Vercel)
 ```bash
@@ -148,17 +148,17 @@ npm run build
 # Set environment variables in platform dashboard
 ```
 
-## 📄 License
+## License
 
 MIT License - feel free to use this portfolio as inspiration for your own!
 
-## 👤 Author
+## Author
 
 **Deepanshu Jangid**
 - Full Stack MERN Developer
 - Experience with React, Node.js, Express, MongoDB, Python, and AI systems
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Design inspiration: Apple, Linear, Vercel
 - Animation libraries: Framer Motion, GSAP, Lenis

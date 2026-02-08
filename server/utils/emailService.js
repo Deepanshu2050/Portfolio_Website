@@ -2,27 +2,27 @@ import nodemailer from 'nodemailer';
 
 // Create reusable transporter
 const createTransporter = () => {
-    return nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_APP_PASSWORD,
-        },
-    });
+  return nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_APP_PASSWORD,
+    },
+  });
 };
 
 // Send email notification when contact form is submitted
 export const sendContactNotification = async (contactData) => {
-    const { name, email, message } = contactData;
+  const { name, email, message } = contactData;
 
-    const transporter = createTransporter();
+  const transporter = createTransporter();
 
-    // Email to you (the portfolio owner)
-    const mailOptionsToOwner = {
-        from: process.env.EMAIL_USER,
-        to: process.env.EMAIL_USER, // Your email
-        subject: `New Portfolio Contact from ${name}`,
-        html: `
+  // Email to you (the portfolio owner)
+  const mailOptionsToOwner = {
+    from: process.env.EMAIL_USER,
+    to: process.env.EMAIL_USER, // Your email
+    subject: `New Portfolio Contact from ${name}`,
+    html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <h2 style="color: #000; border-bottom: 2px solid #000; padding-bottom: 10px;">
           New Contact Form Submission
@@ -44,14 +44,14 @@ export const sendContactNotification = async (contactData) => {
         </div>
       </div>
     `,
-    };
+  };
 
-    // Auto-reply to the sender
-    const mailOptionsToSender = {
-        from: process.env.EMAIL_USER,
-        to: email,
-        subject: 'Thank you for reaching out!',
-        html: `
+  // Auto-reply to the sender
+  const mailOptionsToSender = {
+    from: process.env.EMAIL_USER,
+    to: email,
+    subject: 'Thank you for reaching out!',
+    html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <h2 style="color: #000; border-bottom: 2px solid #000; padding-bottom: 10px;">
           Thank You for Your Message
@@ -77,16 +77,16 @@ export const sendContactNotification = async (contactData) => {
         </div>
       </div>
     `,
-    };
+  };
 
-    try {
-        // Send both emails
-        await transporter.sendMail(mailOptionsToOwner);
-        await transporter.sendMail(mailOptionsToSender);
-        console.log('✅ Emails sent successfully');
-        return { success: true };
-    } catch (error) {
-        console.error('❌ Error sending email:', error);
-        throw error;
-    }
+  try {
+    // Send both emails
+    await transporter.sendMail(mailOptionsToOwner);
+    await transporter.sendMail(mailOptionsToSender);
+    console.log('Emails sent successfully');
+    return { success: true };
+  } catch (error) {
+    console.error('Error sending email:', error);
+    throw error;
+  }
 };
