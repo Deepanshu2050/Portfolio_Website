@@ -1,7 +1,8 @@
 import express from 'express';
 import { body, validationResult } from 'express-validator';
 import Contact from '../models/Contact.js';
-import { sendContactNotification } from '../utils/emailService.js';
+// Email service removed as per user request
+// Contact is saved to database only
 
 const router = express.Router();
 
@@ -36,14 +37,8 @@ router.post(
             const savedContact = await newContact.save();
             console.log('Contact saved to database:', savedContact._id);
 
-            // Send email notification (non-blocking)
-            try {
-                await sendContactNotification({ name, email, message });
-                console.log('Email notification sent');
-            } catch (emailError) {
-                console.error('Email failed but message saved to database:', emailError.message);
-                // Continue - message is already saved to database
-            }
+            // Email notification skipped (Database only mode)
+            console.log('Contact saved to database only (Email service disabled)');
 
             res.status(200).json({
                 success: true,
