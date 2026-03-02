@@ -9,20 +9,20 @@ const Skills = () => {
 
     const skillCategories = [
         {
-            title: 'Frontend',
-            skills: ['React', 'JavaScript (ES6+)', 'Tailwind CSS', 'HTML5 & CSS3', 'Responsive Design', 'Framer Motion']
+            title: 'Frontend & Mobile',
+            skills: ['React & React Native', 'JavaScript & TypeScript', 'Expo', 'Tailwind CSS & Material UI', 'Framer Motion & GSAP']
         },
         {
-            title: 'Backend',
-            skills: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'REST APIs', 'JWT Authentication']
+            title: 'Backend & Database',
+            skills: ['Node.js & Express', 'MongoDB & Mongoose', 'REST APIs', 'Socket.IO (WebSockets)', 'JWT Authentication']
         },
         {
-            title: 'Tools & Technologies',
-            skills: ['Git & GitHub', 'Postman', 'VS Code', 'npm/yarn', 'Vite', 'Vercel/Render']
+            title: 'State & Data Management',
+            skills: ['Redux Toolkit', 'Zustand', 'TanStack Query', 'Context API', 'AsyncStorage & Caching']
         },
         {
-            title: 'AI & Python',
-            skills: ['Python', 'Flask', 'Chatbot Development', 'Data-Driven Systems', 'Rule-Based Logic', 'AI Integration']
+            title: 'Tools & AI',
+            skills: ['Git & GitHub', 'Python & Flask', 'Vite & Webpack', 'Postman', 'Vercel / Render']
         }
     ];
 
