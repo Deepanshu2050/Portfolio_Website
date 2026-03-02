@@ -1,24 +1,35 @@
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
-import { revealUp, textReveal, stagger, staggerItem } from '@animations/motionVariants';
+import { useEffect, useRef, useCallback } from 'react';
+import { textReveal, stagger, staggerItem } from '@animations/motionVariants';
 
 const Hero = () => {
-    const [scrollY, setScrollY] = useState(0);
+    const headingRef = useRef(null);
 
     useEffect(() => {
+        let ticking = false;
+
         const handleScroll = () => {
-            setScrollY(window.scrollY);
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    if (headingRef.current) {
+                        headingRef.current.style.transform = `translate3d(0, ${window.scrollY * 0.3}px, 0)`;
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
         };
+
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const scrollToSection = (sectionId) => {
+    const scrollToSection = useCallback((sectionId) => {
         const element = document.getElementById(sectionId);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
         }
-    };
+    }, []);
 
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden grain">
@@ -42,9 +53,8 @@ const Hero = () => {
                     <motion.h1
                         variants={textReveal}
                         className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-white mb-8 leading-tight"
-                        style={{
-                            transform: `translateY(${scrollY * 0.3}px)`,
-                        }}
+                        ref={headingRef}
+                        style={{ willChange: 'transform' }}
                     >
                         I build scalable
                         <br />

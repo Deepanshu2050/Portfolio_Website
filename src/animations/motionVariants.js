@@ -15,13 +15,13 @@ export const pageTransition = {
 export const revealUp = {
     hidden: {
         opacity: 0,
-        y: 40
+        y: 30
     },
     visible: {
         opacity: 1,
         y: 0,
         transition: {
-            duration: 0.6,
+            duration: 0.5,
             ease: [0.43, 0.13, 0.23, 0.96]
         }
     }
@@ -80,15 +80,15 @@ export const magneticButton = {
 export const textReveal = {
     hidden: {
         opacity: 0,
-        y: 50,
-        skewY: 10
+        y: 30,
+        skewY: 5
     },
     visible: {
         opacity: 1,
         y: 0,
         skewY: 0,
         transition: {
-            duration: 0.8,
+            duration: 0.6,
             ease: [0.43, 0.13, 0.23, 0.96]
         }
     }
